@@ -44,6 +44,8 @@ function addNewNote (text = ''){
 
     textArea.value = text
     main.innerHTML = marked(text)
+    // const para = main.childNodes
+    // para.classList.add('para')
 
     deleteBtn.addEventListener('click', () =>{  
         

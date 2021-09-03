@@ -8,7 +8,7 @@
 /* Custom Scrollbar */
 /* width */
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 6px;
 }
 /* Track */
 ::-webkit-scrollbar-track {
@@ -17,14 +17,16 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #383c3d;
+  border-radius: 5px;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #242627;
+  background: #313335;
 }
 
 body {
   font-family: "Poppins", sans-serif;
+  /* position: relative; */
   background-color: #18191a;
   color: #fff;
   margin: 0;
@@ -65,8 +67,8 @@ body {
   position: relative;
   background-color: #242627;
   box-shadow: 2px 1px 8px 5px rgba(0, 0, 0, 0.1);
-  height: 20rem;
-  width: 17rem;
+  height: 22rem;
+  width: 18rem;
   border-radius: 10px;
   margin: 1rem;
   font-size: 0.9rem;
@@ -77,7 +79,7 @@ body {
 .tools {
   background-color: #383c3d;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 0.25rem;
 }
 
@@ -87,15 +89,17 @@ body {
   cursor: pointer;
   font-size: 0.9rem;
   font-family: inherit;
-  margin-left: 0.25rem;
+  /* margin-left: 0.25rem; */
+  padding: 0 0.5rem;
   color: #cce6f4;
 }
 
 .edit-mode {
   font-size: 0.8rem;
   padding-top: 0.25rem;
+  text-align: center;
   opacity: 0.5;
-  transform: translate(-70%);
+  /* transform: translate(-70%); */
   transition: transform 0.3s ease;
 }
 
@@ -108,13 +112,16 @@ button:hover {
 
 .main {
   position: absolute;
-  padding: 0.5rem 1rem;
+  padding-left: 0.5rem;
   top: 2rem;
   height: 90%;
-  /* overflow-y: scroll; */
 }
-main p {
+.main p {
+  /* min-width: 31ch; */
   width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  overflow-y: scroll;
 }
 button:focus,
 textarea:focus {
@@ -147,9 +154,10 @@ textarea::placeholder {
   visibility: hidden;
 }
 .toasts {
-  position: absolute;
+  position: fixed;
   left: 50%;
   bottom: 1rem;
+  transform: translateX(-50%);
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -164,7 +172,6 @@ textarea::placeholder {
   border-radius: 500px;
   padding: 0.3rem 0.8rem;
   margin: 0.25rem;
-  /* transform: translateX(-50%); */
   transition: all 2s ease-in-out;
   animation: fadeIn 0.5s ease, fadeOut 1s ease-in 2s;
   opacity: 0.9;
@@ -172,6 +179,7 @@ textarea::placeholder {
 
 .delete-all {
   position: fixed;
+  z-index: 100;
   bottom: 0.8rem;
   right: 1rem;
   background-color: #383c3d;
@@ -199,5 +207,18 @@ textarea::placeholder {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (orientation: portrait) {
+  body {
+    padding-top: 0;
+  }
+  .heading {
+    font-size: 1rem;
+  }
+  .note {
+    width: 100%;
+    height: 22rem;
   }
 }
